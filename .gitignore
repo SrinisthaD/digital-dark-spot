@@ -1,0 +1,17 @@
+
+# Protect API keys
+.env
+.env.*
+
+# Python files
+venv/
+__pycache__/
+*.pyc
+
+# React and Node.js
+node_modules/
+dist/
+
+# Editor files
+.vscode/
+.DS_Store

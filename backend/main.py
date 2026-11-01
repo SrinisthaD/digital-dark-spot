@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from scraper import scrape_url
 from analyzer import analyze_sources
+import time
 
 # Create our FastAPI application
 app = FastAPI(title="Digital Dark Spot API")
@@ -39,13 +40,25 @@ def home():
 @app.post("/analyze")
 def analyze_research(request: ResearchRequest):
 
+    
+    start_time = time.perf_counter()
+
     extracted_sources = []
 
     for url in request.sources:
         result = scrape_url(url)
         extracted_sources.append(result)
 
+    scraping_seconds = time.perf_counter() - start_time
+    print(f"Scraping took {scraping_seconds:.2f} seconds", flush=True)
+
+    ai_start = time.perf_counter()
+
     analysis = analyze_sources(request.topic, extracted_sources)
+
+    ai_seconds = time.perf_counter() - ai_start
+    print(f"Gemini analysis took {ai_seconds:.2f} seconds", flush=True)
+
 
     analysis["source_details"] = [
         {

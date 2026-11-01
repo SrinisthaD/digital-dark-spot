@@ -70,7 +70,7 @@ SOURCE ID: {source_id}
 TITLE: {source.get("title", "Unknown")}
 URL: {source.get("url", "Unknown")}
 CONTENT:
-{source.get("text", "")[:20000]}
+{source.get("text", "")[:10000]}
 
 --------------------------------
 """

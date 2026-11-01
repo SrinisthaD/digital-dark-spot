@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./App.css";
 async function analyzeResearch(topic, sources) {
-  const response = await fetch("http://127.0.0.1:8000/analyze", {
+  const response = await fetch("https://digital-dark-spot-unft.onrender.com/analyze", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

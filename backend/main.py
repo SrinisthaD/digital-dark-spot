@@ -11,7 +11,10 @@ app = FastAPI(title="Digital Dark Spot API")
 # Allow our React frontend to communicate with this backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+    "http://localhost:5173",
+    "https://digital-dark-spot-zeta.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

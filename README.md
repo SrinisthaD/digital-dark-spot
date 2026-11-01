@@ -1,4 +1,13 @@
 # Digital Dark Spot
+
+## 🌐 Live Demo
+
+🚀 **Try Digital Dark Spot here:**
+
+https://digital-dark-spot-zeta.vercel.app/
+
+**GitHub Repository:** https://github.com/SrinisthaD/digital-dark-spot
+
 ### AI-Assisted Information Gap Detection Platform
 
 Digital Dark Spot is an AI-powered web application that helps users identify potential information gaps, conflicting claims, outdated information, and unanswered questions across multiple online sources.

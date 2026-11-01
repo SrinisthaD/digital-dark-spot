@@ -27,6 +27,21 @@ function App() {
   const [results, setResults] = useState(null);
   const [error, setError] = useState("");
 
+  const scrollToSection = (sectionId) => {
+  const target = document.getElementById(sectionId);
+
+  if (target) {
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  } else {
+    document.querySelector(".research-form")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
   return (
     <div className="app">
 
@@ -173,7 +188,7 @@ function App() {
       <p>No source details available.</p>
     )}
 
-    <h3>Information Gaps</h3>
+    <h3 id="information-gaps">Information Gaps</h3>
     {results.information_gaps?.length > 0 ? (
       results.information_gaps.map((gap, index) => (
         <div key={index} className="gap-card">
@@ -197,7 +212,7 @@ function App() {
       <p>No potential information gaps identified.</p>
     )}
 
-    <h3>Potential Conflicts</h3>
+    <h3 id="conflicts">Potential Conflicts</h3>
     {results.conflicts?.length > 0 ? (
       results.conflicts.map((conflict, index) => (
         <div key={index}>
@@ -210,7 +225,7 @@ function App() {
     )}
 
     
-<h3>Potentially Outdated Information</h3>
+<h3 id="outdated-signals">Potentially Outdated Information</h3>
 
 {results.outdated_signals?.length > 0 ? (
   results.outdated_signals.map((signal, index) => (
@@ -273,28 +288,63 @@ function App() {
 
         </div>
 
+        
         {/* Features */}
         <section className="features">
 
-          <div className="feature-card">
+          <div
+            className="feature-card"
+            role="button"
+            tabIndex={0}
+            onClick={() => scrollToSection("information-gaps")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                scrollToSection("information-gaps");
+              }
+            }}
+          >
             <div className="feature-icon">⌕</div>
             <h3>Information Gaps</h3>
             <p>Discover what important information is missing.</p>
           </div>
 
-          <div className="feature-card">
+          <div
+            className="feature-card"
+            role="button"
+            tabIndex={0}
+            onClick={() => scrollToSection("conflicts")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                scrollToSection("conflicts");
+              }
+            }}
+          >
             <div className="feature-icon">⚖</div>
             <h3>Conflict Detection</h3>
             <p>Compare claims across different sources.</p>
           </div>
 
-          <div className="feature-card">
+          <div
+            className="feature-card"
+            role="button"
+            tabIndex={0}
+            onClick={() => scrollToSection("outdated-signals")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                scrollToSection("outdated-signals");
+              }
+            }}
+          >
             <div className="feature-icon">◷</div>
             <h3>Outdated Information</h3>
             <p>Identify information that may need verification.</p>
           </div>
 
         </section>
+
 
       </main>
 

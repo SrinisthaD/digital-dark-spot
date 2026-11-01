@@ -161,6 +161,19 @@ Return ONLY valid JSON in this exact structure:
     }}
   ]
 }}
+
+Keep the analysis concise and evidence-based.
+Return at most:
+- 3 information gaps
+- 2 conflicts
+- 2 outdated signals
+- 3 unanswered questions
+- 4 verification checklist items
+
+Keep each explanation to 1-2 sentences.
+Do not invent evidence or fill sections with unsupported claims.
+Return valid JSON using the required structure.
+
 """
 
     try:
